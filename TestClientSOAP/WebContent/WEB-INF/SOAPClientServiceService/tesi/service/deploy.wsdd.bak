@@ -1,0 +1,59 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SOAPClientServiceService WSDL service -->
+
+  <service name="SOAPClientService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+      <parameter name="wsdlServiceElement" value="SOAPClientServiceService"/>
+      <parameter name="schemaQualified" value="http://model.tesi,http://service.tesi"/>
+      <parameter name="wsdlServicePort" value="SOAPClientService"/>
+      <parameter name="className" value="tesi.service.SOAPClientServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SOAPClientService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="login" qname="operNS:login" xmlns:operNS="http://service.tesi" returnQName="retNS:loginReturn" xmlns:retNS="http://service.tesi" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminalName" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:id" xmlns:pns="http://service.tesi" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:police" xmlns:pns="http://service.tesi" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="logout" qname="operNS:logout" xmlns:operNS="http://service.tesi" soapAction="" >
+        <parameter qname="pns:terminal" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:police" xmlns:pns="http://service.tesi" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="stopTerminal" qname="operNS:stopTerminal" xmlns:operNS="http://service.tesi" soapAction="" >
+        <parameter qname="pns:terminalName" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="releaseTerminal" qname="operNS:releaseTerminal" xmlns:operNS="http://service.tesi" soapAction="" >
+        <parameter qname="pns:terminalName" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNextPassenger" qname="operNS:getNextPassenger" xmlns:operNS="http://service.tesi" returnQName="retNS:getNextPassengerReturn" xmlns:retNS="http://service.tesi" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminal" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="updatePassenger" qname="operNS:updatePassenger" xmlns:operNS="http://service.tesi" soapAction="" >
+        <parameter qname="pns:passenger" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:passed" xmlns:pns="http://service.tesi" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getDocument" qname="operNS:getDocument" xmlns:operNS="http://service.tesi" returnQName="retNS:getDocumentReturn" xmlns:retNS="http://service.tesi" returnType="rtns:CustomsDocument" xmlns:rtns="http://model.tesi" soapAction="" >
+        <parameter qname="pns:terminal" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="logout stopTerminal getDocument releaseTerminal updatePassenger login getNextPassenger"/>
+
+      <typeMapping
+        xmlns:ns="http://model.tesi"
+        qname="ns:CustomsDocument"
+        type="java:tesi.model.CustomsDocument"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.tesi" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.tesi" xmlns:intf="http://service.tesi" xmlns:tns1="http://model.tesi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.tesi" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.tesi"/>
+   <element name="passed">
+    <complexType>
+     <sequence>
+      <element name="passenger" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="passedResponse">
+    <complexType>
+     <sequence>
+      <element name="passedReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkAvailability">
+    <complexType>
+     <sequence>
+      <element name="terminalName" type="xsd:string"/>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="checkAvailabilityResponse">
+    <complexType>
+     <sequence>
+      <element name="checkAvailabilityReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="policeStop">
+    <complexType>
+     <sequence>
+      <element name="terminal" type="xsd:string"/>
+      <element name="passenger" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="policeStopResponse">
+    <complexType/>
+   </element>
+   <element name="customsStop">
+    <complexType>
+     <sequence>
+      <element name="terminal" type="xsd:string"/>
+      <element name="documents" type="tns1:CustomsDocument"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="customsStopResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://model.tesi" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="CustomsDocument">
+    <sequence>
+     <element name="content" nillable="true" type="xsd:base64Binary"/>
+     <element name="passenger" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="checkAvailabilityResponse">
+
+      <wsdl:part element="impl:checkAvailabilityResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="policeStopResponse">
+
+      <wsdl:part element="impl:policeStopResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="customsStopResponse">
+
+      <wsdl:part element="impl:customsStopResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="passedResponse">
+
+      <wsdl:part element="impl:passedResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="checkAvailabilityRequest">
+
+      <wsdl:part element="impl:checkAvailability" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="customsStopRequest">
+
+      <wsdl:part element="impl:customsStop" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="policeStopRequest">
+
+      <wsdl:part element="impl:policeStop" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="passedRequest">
+
+      <wsdl:part element="impl:passed" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SOAPTestService">
+
+      <wsdl:operation name="passed">
+
+         <wsdl:input message="impl:passedRequest" name="passedRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:passedResponse" name="passedResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAvailability">
+
+         <wsdl:input message="impl:checkAvailabilityRequest" name="checkAvailabilityRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:checkAvailabilityResponse" name="checkAvailabilityResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="policeStop">
+
+         <wsdl:input message="impl:policeStopRequest" name="policeStopRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:policeStopResponse" name="policeStopResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="customsStop">
+
+         <wsdl:input message="impl:customsStopRequest" name="customsStopRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:customsStopResponse" name="customsStopResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SOAPTestServiceSoapBinding" type="impl:SOAPTestService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="passed">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="passedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="passedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="checkAvailability">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="checkAvailabilityRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="checkAvailabilityResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="policeStop">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="policeStopRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="policeStopResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="customsStop">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="customsStopRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="customsStopResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SOAPTestServiceService">
+
+      <wsdl:port binding="impl:SOAPTestServiceSoapBinding" name="SOAPTestService">
+
+         <wsdlsoap:address location="http://localhost:8080/TestClientSOAP/services/SOAPTestService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="125.0" layoutY="50.0" prefHeight="50.0" prefWidth="250.0" text="DOBRO DOŠLI" textAlignment="CENTER" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="125.0" prefHeight="45.0" prefWidth="150.0" text="Naziv terminala:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="terminalNameTextField" alignment="CENTER" layoutX="100.0" layoutY="180.0" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1.5;">
+         <font>
+            <Font name="Marlett" size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="100.0" layoutY="250.0" prefHeight="45.0" prefWidth="140.0" text="Broj ulaza/izlaza:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="entryIdTextField" alignment="CENTER" layoutX="260.0" layoutY="250.0" prefHeight="45.0" prefWidth="140.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1.5;">
+         <font>
+            <Font name="Marlett" size="20.0" />
+         </font>
+      </TextField>
+      <Line endX="100.0" layoutX="250.0" layoutY="99.0" startX="-100.0" stroke="#a01d26" />
+      <Button alignment="CENTER" layoutX="195.0" layoutY="365.0" mnemonicParsing="false" onAction="#submit" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: #a01d26; -fx-background-radius: 25;" text="POTVRDI" textAlignment="CENTER" textFill="#f4f4ef">
+         <font>
+            <Font name="Arial Narrow Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

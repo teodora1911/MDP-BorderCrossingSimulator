@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="100.0" layoutY="50.0" prefHeight="40.0" prefWidth="300.0" text="Naziv terminala:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="terminalNameTextField" alignment="CENTER" layoutX="100.0" layoutY="100.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="130.0" layoutY="175.0" prefHeight="40.0" prefWidth="100.0" text="Broj ulaza:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="entryNumberTextField" alignment="CENTER" layoutX="250.0" layoutY="175.0" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="130.0" layoutY="225.0" prefHeight="40.0" prefWidth="100.0" text="Broj izlaza:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="exitNumberTextField" alignment="CENTER" layoutX="250.0" layoutY="225.0" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="200.0" layoutY="393.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a01d26; -fx-background-radius: 20;" text="SAČUVAJ" textFill="#f4f4ef">
+         <font>
+            <Font name="Arial Narrow Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="bannerLabel" alignment="CENTER" layoutX="100.0" layoutY="314.0" prefHeight="40.0" prefWidth="300.0" text="Nije moguća radnja." textAlignment="CENTER" textFill="#c31919" visible="false">
+         <font>
+            <Font name="Arial Narrow" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

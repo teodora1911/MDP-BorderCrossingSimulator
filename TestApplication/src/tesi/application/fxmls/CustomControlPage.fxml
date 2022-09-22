@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="75.0" layoutY="50.0" prefHeight="50.0" prefWidth="350.0" text="CARINSKA KONTROLA" textAlignment="CENTER" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow Bold" size="30.0" />
+         </font>
+      </Label>
+      <Line endX="200.0" layoutX="200.0" layoutY="100.0" startX="-100.0" stroke="#a01d26" />
+      <Button alignment="CENTER" layoutX="195.0" layoutY="415.0" mnemonicParsing="false" onAction="#submit" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: #a01d26; -fx-background-radius: 25;" text="POTVRDI" textAlignment="CENTER" textFill="#f4f4ef">
+         <font>
+            <Font name="Arial Narrow Bold" size="20.0" />
+         </font>
+      </Button>
+      <ListView fx:id="filesListView" layoutX="25.0" layoutY="165.0" prefHeight="150.0" prefWidth="450.0" />
+      <Label layoutX="25.0" layoutY="120.0" prefHeight="45.0" prefWidth="175.0" text="Priloženi dokumenti:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="70.0" layoutY="335.0" mnemonicParsing="false" onAction="#addFiles" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="DODAJ" textAlignment="CENTER" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="255.0" layoutY="335.0" mnemonicParsing="false" onAction="#removeSelectedFile" prefHeight="35.0" prefWidth="175.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="UKLONI" textAlignment="CENTER" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

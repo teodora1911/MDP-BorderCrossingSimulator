@@ -1,0 +1,114 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="D:\TEODORA\III\MDP\PROJEKTNI ZADATAK\ProjektniZadatak\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TestClientSOAP\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="SOAPClientService" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="login" qname="ns1:login" returnQName="ns1:loginReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://service.tesi" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:terminalName" type="xsd:string"/>
+   <ns2:parameter qname="ns1:id" type="xsd:int"/>
+   <ns2:parameter qname="ns1:police" type="xsd:boolean"/>
+  </ns2:operation>
+  <ns1:operation name="logout" qname="ns2:logout" soapAction="" xmlns:ns2="http://service.tesi">
+   <ns1:parameter qname="ns2:terminal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns2:police" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="stopTerminal" qname="ns3:stopTerminal" soapAction="" xmlns:ns3="http://service.tesi">
+   <ns1:parameter qname="ns3:terminalName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="releaseTerminal" qname="ns4:releaseTerminal" soapAction="" xmlns:ns4="http://service.tesi">
+   <ns1:parameter qname="ns4:terminalName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getNextPassenger" qname="ns5:getNextPassenger" returnQName="ns5:getNextPassengerReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://service.tesi" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:terminal" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updatePassenger" qname="ns6:updatePassenger" soapAction="" xmlns:ns6="http://service.tesi">
+   <ns1:parameter qname="ns6:passenger" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns6:passed" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getDocument" qname="ns7:getDocument" returnQName="ns7:getDocumentReturn" returnType="ns8:CustomsDocument" soapAction="" xmlns:ns7="http://service.tesi" xmlns:ns8="http://model.tesi">
+   <ns1:parameter qname="ns7:terminal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="logout stopTerminal getDocument releaseTerminal updatePassenger login getNextPassenger"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="SOAPClientService"/>
+  <ns1:parameter name="className" value="tesi.service.SOAPClientService"/>
+  <ns1:parameter name="wsdlServicePort" value="SOAPClientService"/>
+  <ns1:parameter name="schemaQualified" value="http://model.tesi,http://service.tesi"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+  <ns1:parameter name="wsdlServiceElement" value="SOAPClientServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:CustomsDocument" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:tesi.model.CustomsDocument" xmlns:ns9="http://model.tesi"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="SOAPTestService" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="passed" qname="ns10:passed" returnQName="ns10:passedReturn" returnType="xsd:int" soapAction="" xmlns:ns10="http://service.tesi" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:passenger" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="checkAvailability" qname="ns11:checkAvailability" returnQName="ns11:checkAvailabilityReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://service.tesi" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:terminalName" type="xsd:string"/>
+   <ns1:parameter qname="ns11:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="policeStop" qname="ns12:policeStop" soapAction="" xmlns:ns12="http://service.tesi">
+   <ns1:parameter qname="ns12:terminal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns12:passenger" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="customsStop" qname="ns13:customsStop" soapAction="" xmlns:ns13="http://service.tesi">
+   <ns1:parameter qname="ns13:terminal" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns13:documents" type="ns14:CustomsDocument" xmlns:ns14="http://model.tesi"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="policeStop customsStop passed checkAvailability"/>
+  <ns1:parameter name="wsdlPortType" value="SOAPTestService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://model.tesi,http://service.tesi"/>
+  <ns1:parameter name="wsdlServicePort" value="SOAPTestService"/>
+  <ns1:parameter name="className" value="tesi.service.SOAPTestService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+  <ns1:parameter name="wsdlServiceElement" value="SOAPTestServiceService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns15:CustomsDocument" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:tesi.model.CustomsDocument" xmlns:ns15="http://model.tesi"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

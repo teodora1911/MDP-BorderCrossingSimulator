@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CentralRegistryClientServiceService WSDL service -->
+
+  <service name="CentralRegistryClientService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+      <parameter name="wsdlServiceElement" value="CentralRegistryClientServiceService"/>
+      <parameter name="schemaQualified" value="http://service.tesi"/>
+      <parameter name="wsdlServicePort" value="CentralRegistryClientService"/>
+      <parameter name="className" value="tesi.service.CentralRegistryClientService"/>
+      <parameter name="wsdlPortType" value="CentralRegistryClientService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.tesi" xmlns:retNS="http://service.tesi" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="login" qname="operNS:login" returnQName="retNS:loginReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:entry" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" name="logPassengerCrossed" qname="operNS:logPassengerCrossed" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passenger" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" name="logPassengerOnWarrant" qname="operNS:logPassengerOnWarrant" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passenger" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" xmlns:retNS="http://service.tesi" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPassengers" qname="operNS:getPassengers" returnQName="retNS:getPassengersReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="logPassengerCrossed getPassengers logPassengerOnWarrant login"/>
+
+  </service>
+</deployment>

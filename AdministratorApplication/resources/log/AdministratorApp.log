@@ -1,0 +1,28 @@
+avg 04, 2022 12:43:22 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.IOException: Server returned HTTP response code: 500 for URL: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 04, 2022 12:43:22 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 04, 2022 12:43:32 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.IOException: Server returned HTTP response code: 500 for URL: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 04, 2022 12:43:32 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 09, 2022 2:50:27 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 09, 2022 2:50:27 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 09, 2022 2:50:51 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 09, 2022 2:50:51 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 09, 2022 2:51:05 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 09, 2022 2:51:05 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 09, 2022 2:52:50 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 09, 2022 2:52:51 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null
+avg 09, 2022 2:53:52 PO PODNE tesi.util.RESTUtility jsonArrayRequest
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici
+avg 09, 2022 2:53:52 PO PODNE tesi.util.RESTUtility getAllUsers
+SEVERE: java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.length()" because "response" is null

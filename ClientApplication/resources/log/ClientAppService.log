@@ -1,0 +1,3 @@
+avg 04, 2022 11:48:16 PRIJE PODNE tesi.rmi.warrants.client.ArrestWarrantClient getInstance
+SEVERE: java.rmi.ConnectException: Connection refused to host: 172.27.160.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect

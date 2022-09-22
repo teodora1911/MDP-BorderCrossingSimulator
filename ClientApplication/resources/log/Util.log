@@ -1,0 +1,4 @@
+avg 04, 2022 11:48:16 PRIJE PODNE tesi.util.controls.PoliceControlThread run
+SEVERE: java.lang.NullPointerException: Cannot invoke "tesi.rmi.warrants.client.ArrestWarrantClient.checkArrestWarrant(String)" because the return value of "tesi.rmi.warrants.client.ArrestWarrantClient.getInstance()" is null
+avg 09, 2022 2:56:30 PO PODNE tesi.util.RESTUtility login
+SEVERE: java.io.FileNotFoundException: http://localhost:8080/InMemoryDB/granicniprelaz/korisnici/java

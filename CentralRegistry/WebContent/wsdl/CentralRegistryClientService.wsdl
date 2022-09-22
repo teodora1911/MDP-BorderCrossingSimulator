@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.tesi" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://service.tesi" xmlns:intf="http://service.tesi" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://service.tesi" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="login">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="entry" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginResponse">
+    <complexType>
+     <sequence>
+      <element name="loginReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logPassengerCrossed">
+    <complexType>
+     <sequence>
+      <element name="passenger" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logPassengerCrossedResponse">
+    <complexType/>
+   </element>
+   <element name="logPassengerOnWarrant">
+    <complexType>
+     <sequence>
+      <element name="passenger" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="logPassengerOnWarrantResponse">
+    <complexType/>
+   </element>
+   <element name="getPassengers">
+    <complexType/>
+   </element>
+   <element name="getPassengersResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPassengersReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getPassengersRequest">
+
+      <wsdl:part element="impl:getPassengers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPassengerOnWarrantResponse">
+
+      <wsdl:part element="impl:logPassengerOnWarrantResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPassengersResponse">
+
+      <wsdl:part element="impl:getPassengersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPassengerCrossedRequest">
+
+      <wsdl:part element="impl:logPassengerCrossed" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginResponse">
+
+      <wsdl:part element="impl:loginResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPassengerCrossedResponse">
+
+      <wsdl:part element="impl:logPassengerCrossedResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginRequest">
+
+      <wsdl:part element="impl:login" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="logPassengerOnWarrantRequest">
+
+      <wsdl:part element="impl:logPassengerOnWarrant" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="CentralRegistryClientService">
+
+      <wsdl:operation name="login">
+
+         <wsdl:input message="impl:loginRequest" name="loginRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginResponse" name="loginResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPassengerCrossed">
+
+         <wsdl:input message="impl:logPassengerCrossedRequest" name="logPassengerCrossedRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:logPassengerCrossedResponse" name="logPassengerCrossedResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPassengerOnWarrant">
+
+         <wsdl:input message="impl:logPassengerOnWarrantRequest" name="logPassengerOnWarrantRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:logPassengerOnWarrantResponse" name="logPassengerOnWarrantResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPassengers">
+
+         <wsdl:input message="impl:getPassengersRequest" name="getPassengersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPassengersResponse" name="getPassengersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CentralRegistryClientServiceSoapBinding" type="impl:CentralRegistryClientService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="login">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPassengerCrossed">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="logPassengerCrossedRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="logPassengerCrossedResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="logPassengerOnWarrant">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="logPassengerOnWarrantRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="logPassengerOnWarrantResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPassengers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPassengersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPassengersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CentralRegistryClientServiceService">
+
+      <wsdl:port binding="impl:CentralRegistryClientServiceSoapBinding" name="CentralRegistryClientService">
+
+         <wsdlsoap:address location="http://localhost:8080/CentralRegistry/services/CentralRegistryClientService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/tesi/model/CustomsDocument.java=UTF-8
+encoding//src/tesi/service/CentralRegistryClientService.java=UTF-8
+encoding//src/tesi/service/CentralRegistryClientServiceService.java=UTF-8
+encoding//src/tesi/service/CentralRegistryClientServiceServiceLocator.java=UTF-8
+encoding//src/tesi/service/CentralRegistryClientServiceSoapBindingStub.java=UTF-8
+encoding//src/tesi/service/SOAPClientService.java=UTF-8
+encoding//src/tesi/service/SOAPClientServiceService.java=UTF-8
+encoding//src/tesi/service/SOAPClientServiceServiceLocator.java=UTF-8
+encoding//src/tesi/service/SOAPClientServiceSoapBindingStub.java=UTF-8

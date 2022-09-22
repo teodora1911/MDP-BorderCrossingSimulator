@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="150.0" layoutY="18.0" prefHeight="65.0" prefWidth="200.0" text="DOBRODOŠLI" textAlignment="CENTER" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="50.0" layoutY="100.0" prefHeight="45.0" prefWidth="150.0" text="Naziv terminala:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="terminalNameTextField" alignment="CENTER" layoutX="50.0" layoutY="150.0" prefHeight="45.0" prefWidth="400.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1.5;">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <Button alignment="CENTER" layoutX="195.0" layoutY="399.0" mnemonicParsing="false" onAction="#submit" prefHeight="45.0" prefWidth="110.0" style="-fx-background-color: #a01d26; -fx-background-radius: 25;" text="POTVRDI" textAlignment="CENTER" textFill="#f4f4ef">
+         <font>
+            <Font name="Arial Narrow Bold" size="20.0" />
+         </font>
+      </Button>
+      <Line endX="100.0" layoutX="250.0" layoutY="82.0" startX="-100.0" stroke="#acbebe" strokeLineCap="ROUND" strokeLineJoin="ROUND" />
+      <Label layoutX="75.0" layoutY="225.0" prefHeight="45.0" prefWidth="150.0" text="Broj ulaza/izlaza:" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="entryIdTextField" alignment="CENTER" layoutX="250.0" layoutY="225.0" prefHeight="45.0" prefWidth="150.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-width: 1.5;">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="policeControlRadioButton" layoutX="65.0" layoutY="300.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="175.0" selected="true" text="Policijski terminal" textFill="#20232a">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+         <toggleGroup>
+            <ToggleGroup fx:id="controlTypeGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="customsControlRadioButton" layoutX="250.0" layoutY="300.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="175.0" text="Carinski terminal" textFill="#20232a" toggleGroup="$controlTypeGroup">
+         <font>
+            <Font name="Arial Narrow" size="20.0" />
+         </font>
+      </RadioButton>
+   </children>
+</AnchorPane>

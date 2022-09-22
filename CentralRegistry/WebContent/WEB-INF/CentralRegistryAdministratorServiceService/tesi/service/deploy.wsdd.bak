@@ -1,0 +1,63 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CentralRegistryAdministratorServiceService WSDL service -->
+
+  <service name="CentralRegistryAdministratorService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+      <parameter name="wsdlServiceElement" value="CentralRegistryAdministratorServiceService"/>
+      <parameter name="schemaQualified" value="http://model.tesi,http://service.tesi"/>
+      <parameter name="wsdlServicePort" value="CentralRegistryAdministratorService"/>
+      <parameter name="className" value="tesi.service.CentralRegistryAdministratorServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CentralRegistryAdministratorService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getTerminal" qname="operNS:getTerminal" xmlns:operNS="http://service.tesi" returnQName="retNS:getTerminalReturn" xmlns:retNS="http://service.tesi" returnType="rtns:Terminal" xmlns:rtns="http://model.tesi" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteTerminal" qname="operNS:deleteTerminal" xmlns:operNS="http://service.tesi" returnQName="retNS:deleteTerminalReturn" xmlns:retNS="http://service.tesi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://service.tesi" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addTerminal" qname="operNS:addTerminal" xmlns:operNS="http://service.tesi" returnQName="retNS:addTerminalReturn" xmlns:retNS="http://service.tesi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminal" xmlns:pns="http://service.tesi" type="tns:Terminal" xmlns:tns="http://model.tesi"/>
+      </operation>
+      <operation name="updateTerminal" qname="operNS:updateTerminal" xmlns:operNS="http://service.tesi" returnQName="retNS:updateTerminalReturn" xmlns:retNS="http://service.tesi" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:terminal" xmlns:pns="http://service.tesi" type="tns:Terminal" xmlns:tns="http://model.tesi"/>
+      </operation>
+      <operation name="getPassengers" qname="operNS:getPassengers" xmlns:operNS="http://service.tesi" returnQName="retNS:getPassengersReturn" xmlns:retNS="http://service.tesi" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="updateTerminal getTerminal getPassengers addTerminal deleteTerminal"/>
+
+      <arrayMapping
+        xmlns:ns="http://service.tesi"
+        qname="ns:ArrayOf_tns1_Entry"
+        type="java:tesi.model.Entry[]"
+        innerType="cmp-ns:Entry" xmlns:cmp-ns="http://model.tesi"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model.tesi"
+        qname="ns:Terminal"
+        type="java:tesi.model.Terminal"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://model.tesi"
+        qname="ns:Entry"
+        type="java:tesi.model.Entry"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: #a01d26;">
+         <children>
+            <Button fx:id="terminalsButton" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #20232a;" text="TERMINALI" textAlignment="CENTER" textFill="#f4f4ef" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="userButton" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #a01d26;" text="KORISNIČKI NALOZI" textAlignment="CENTER" textFill="#f4f4ef" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="warrantPassengersButton" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #a01d26;" text="DETEKTOVANI PUTNICI" textAlignment="CENTER" textFill="#f4f4ef" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="passengersButton" alignment="CENTER" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: #a01d26;" text="PUTNICI" textAlignment="CENTER" textFill="#f4f4ef" wrapText="true">
+               <font>
+                  <Font name="Arial Narrow Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="terminalsPane" layoutX="150.0" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="75.0" layoutY="50.0" prefHeight="40.0" prefWidth="170.0" text="Naziv terminala:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchTerminalTextField" alignment="CENTER" layoutX="250.0" layoutY="50.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </TextField>
+            <Button layoutX="507.0" layoutY="50.0" mnemonicParsing="false" onAction="#searchTerminal" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #a01d26; -fx-background-radius: 20;" text="PRETRAŽI" textFill="#f4f4ef">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="75.0" layoutY="125.0" prefHeight="40.0" prefWidth="170.0" text="Identifikator terminala:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="200.0" prefHeight="40.0" prefWidth="170.0" text="Broj ulaza:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="275.0" prefHeight="40.0" prefWidth="170.0" text="Broj izlaza:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="terminalIDLabel" alignment="CENTER" layoutX="250.0" layoutY="125.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#41483c">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="entryNumberLabel" alignment="CENTER" layoutX="250.0" layoutY="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#41483c">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="exitNumberLabel" alignment="CENTER" layoutX="250.0" layoutY="275.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;" textAlignment="CENTER" textFill="#41483c">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="75.0" layoutY="380.0" mnemonicParsing="false" onAction="#addNewTerminal" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="DODAJ" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="447.0" layoutY="380.0" mnemonicParsing="false" onAction="#deleteTerminal" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="OBRIŠI" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="265.0" layoutY="380.0" mnemonicParsing="false" onAction="#updateTerminal" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="AŽURIRAJ" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="userPane" layoutX="150.0" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Label layoutX="15.0" layoutY="350.0" prefHeight="40.0" prefWidth="125.0" text="Korisničko ime:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="150.0" layoutY="350.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <font>
+                  <Font name="Arial" size="19.0" />
+               </font>
+            </TextField>
+            <Label layoutX="15.0" layoutY="415.0" prefHeight="40.0" prefWidth="125.0" text="Lozinka:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="415.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="newPasswordLabel" layoutX="15.0" layoutY="480.0" prefHeight="40.0" prefWidth="125.0" text="Nova lozinka:" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="newPasswordField" layoutX="150.0" layoutY="480.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe; -fx-background-radius: 20; -fx-border-radius: 20;">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </PasswordField>
+            <Button alignment="CENTER" layoutX="479.0" layoutY="380.0" mnemonicParsing="false" onAction="#addNewUser" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="DODAJ" textAlignment="CENTER" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="500.0" layoutY="95.0" mnemonicParsing="false" onAction="#selectUpdate" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="AŽURIRAJ" textAlignment="CENTER" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" layoutX="500.0" layoutY="175.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="OBRIŠI" textAlignment="CENTER" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <Line endX="550.0" layoutX="100.0" layoutY="315.0" startX="-100.0" />
+            <ListView fx:id="usersListView" layoutX="15.0" layoutY="15.0" prefHeight="275.0" prefWidth="450.0" />
+            <Button fx:id="changePasswordButton" alignment="CENTER" layoutX="444.0" layoutY="463.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #20232a;" text="PROMIJENI LOZINKU" textAlignment="CENTER" textFill="#20232a">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="warrantPassengersPane" layoutX="150.0" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <ListView fx:id="warrantPassengersListView" layoutX="25.0" layoutY="25.0" prefHeight="550.0" prefWidth="600.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="passengersPane" layoutX="150.0" prefHeight="600.0" prefWidth="650.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Button layoutX="175.0" layoutY="475.0" mnemonicParsing="false" onAction="#downloadDocuments" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #20232a; -fx-background-radius: 20;" text="PREUZMI CARINSKE DOKUMENTE" textFill="#f4f4ef">
+               <font>
+                  <Font name="Arial Narrow Bold" size="18.0" />
+               </font>
+            </Button>
+            <TableView fx:id="passengersTableView" layoutX="25.0" layoutY="25.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f4f4ef; -fx-border-color: #acbebe;">
+              <columns>
+                <TableColumn fx:id="passengerIdColumn" prefWidth="347.0" text="Identifikator" />
+                <TableColumn fx:id="passengerCrossingTimeColumn" prefWidth="250.0" text="Vrijeme prelaza" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SOAPTestServiceService WSDL service -->
+
+  <service name="SOAPTestService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service.tesi"/>
+      <parameter name="wsdlServiceElement" value="SOAPTestServiceService"/>
+      <parameter name="schemaQualified" value="http://model.tesi,http://service.tesi"/>
+      <parameter name="wsdlServicePort" value="SOAPTestService"/>
+      <parameter name="className" value="tesi.service.SOAPTestService"/>
+      <parameter name="wsdlPortType" value="SOAPTestService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://service.tesi" xmlns:retNS="http://service.tesi" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="passed" qname="operNS:passed" returnQName="retNS:passedReturn" returnType="rtns:int" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passenger" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" xmlns:retNS="http://service.tesi" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="checkAvailability" qname="operNS:checkAvailability" returnQName="retNS:checkAvailabilityReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:terminalName" type="tns:string"/>
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" name="policeStop" qname="operNS:policeStop" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:terminal" type="tns:string"/>
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passenger" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://service.tesi" name="customsStop" qname="operNS:customsStop" soapAction="">
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:terminal" type="tns:string"/>
+        <parameter xmlns:pns="http://service.tesi" xmlns:tns="http://model.tesi" qname="pns:documents" type="tns:CustomsDocument"/>
+      </operation>
+      <parameter name="allowedMethods" value="policeStop customsStop passed checkAvailability"/>
+
+      <typeMapping xmlns:ns="http://model.tesi" qname="ns:CustomsDocument" type="java:tesi.model.CustomsDocument" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
